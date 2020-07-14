@@ -1,20 +1,15 @@
 package models;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-public class Order {
+public class OrderInput {
 
   private String id;
   private String product;
   private Integer quantity;
-  private Date deadline;
+  private String deadline;
   private Integer margin;
   private Integer penalty;
 
-  public Order(String id, String product, Integer quantity, Date deadline, Integer margin,
+  public OrderInput(String id, String product, Integer quantity, String deadline, Integer margin,
       Integer penalty) {
     this.id = id;
     this.product = product;
@@ -48,11 +43,11 @@ public class Order {
     this.quantity = quantity;
   }
 
-  public Date getDeadline() {
+  public String getDeadline() {
     return deadline;
   }
 
-  public void setDeadline(Date deadline) {
+  public void setDeadline(String deadline) {
     this.deadline = deadline;
   }
 

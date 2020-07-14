@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import models.Order;
+import models.OrderInput;
 
 public class CsvReader {
 
@@ -17,18 +17,22 @@ public class CsvReader {
     this.path = path;
   }
 
-  public List<Order> readFile() throws FileNotFoundException {
+  public List<OrderInput> readFile() {
     try {
       BufferedReader csvReader = new BufferedReader(new FileReader(path));
-      List<Order> orders = new ArrayList<>();
+      List<OrderInput> orderInputs = new ArrayList<>();
 
       OrderConverter orderConverter = new OrderConverter();
       String row;
+      int counter = 0;
       while ((row = csvReader.readLine()) != null) {
-        String[] data = row.split(",");
-        orders.add(orderConverter.convertToOrder(data));
+        String[] data = row.split(";");
+        if ( counter != 0) {
+          orderInputs.add(orderConverter.convertToOrder(data));
+        }
+        counter++;
       }
-      return orders;
+      return orderInputs;
     } catch (FileNotFoundException e) {
       System.out.println("File not found!");
     } catch (IOException | ParseException e) {
