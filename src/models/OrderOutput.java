@@ -3,11 +3,13 @@ package models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import models.machines.Machine;
 
 public class OrderOutput {
 
   private String id;
-  private Integer margin;
+  private Integer profit;
   private Integer penalty;
   private Date startOfWork;
   private Date endOfWork;
@@ -16,10 +18,10 @@ public class OrderOutput {
   public OrderOutput() {
   }
 
-  public OrderOutput(String id, Integer margin, Integer penalty, String startOfWork,
+  public OrderOutput(String id, Integer profit, Integer penalty, String startOfWork,
       String endOfWork, Date originalDeadline) throws ParseException {
     this.id = id;
-    this.margin = margin;
+    this.profit = profit;
     this.penalty = penalty;
     this.startOfWork = new SimpleDateFormat("hh:mm").parse(startOfWork);
     this.endOfWork = new SimpleDateFormat("hh:mm").parse(endOfWork);
@@ -34,12 +36,12 @@ public class OrderOutput {
     this.id = id;
   }
 
-  public Integer getMargin() {
-    return margin;
+  public Integer getProfit() {
+    return profit;
   }
 
-  public void setMargin(Integer margin) {
-    this.margin = margin;
+  public void setProfit(Integer profit) {
+    this.profit = profit;
   }
 
   public Integer getPenalty() {

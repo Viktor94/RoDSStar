@@ -28,7 +28,7 @@ public class CsvWriter {
     for (OrderOutput rowData : orderOutputs) {
       fileWriter.append(rowData.getId());
       fileWriter.append(";");
-      fileWriter.append(rowData.getMargin().toString());
+      fileWriter.append(rowData.getProfit().toString());
       fileWriter.append(";");
       fileWriter.append(rowData.getPenalty().toString());
       fileWriter.append(";");

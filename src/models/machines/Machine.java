@@ -32,4 +32,8 @@ public abstract class Machine {
   public Date getAvailableFrom() {
     return availableFrom;
   }
+
+  public void setAvailableFrom(Date availableFrom) {
+    this.availableFrom = availableFrom;
+  }
 }
