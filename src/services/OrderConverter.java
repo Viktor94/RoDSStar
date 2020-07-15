@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -14,12 +14,13 @@ public class OrderConverter {
         Integer.valueOf(line[4]), Integer.valueOf(line[5]));
   }
 
-  public List<OrderOutput> convertOrderToOrderOutput(List<OrderInput> orderInputs) {
+  public List<OrderOutput> convertOrderToOrderOutput(List<OrderInput> orderInputs)
+      throws ParseException {
     List<OrderOutput> orderOutputs = new ArrayList<>();
 
     for (OrderInput orderInput : orderInputs) {
       OrderOutput orderOutput = new OrderOutput(orderInput.getId(), orderInput.getProfit()
-          , 1, "Start time", "End time", orderInput.getDeadline());
+          , 1, "08:00", "12:00", orderInput.getDeadline());
       orderOutputs.add(orderOutput);
     }
     return orderOutputs;

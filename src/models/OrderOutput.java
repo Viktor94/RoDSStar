@@ -1,24 +1,28 @@
 package models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OrderOutput {
 
   private String id;
   private Integer margin;
   private Integer penalty;
-  private String startOfWork;
-  private String endOfWork;
-  private String originalDeadline;
+  private Date startOfWork;
+  private Date endOfWork;
+  private Date originalDeadline;
 
   public OrderOutput() {
   }
 
   public OrderOutput(String id, Integer margin, Integer penalty, String startOfWork,
-      String endOfWork, String originalDeadline) {
+      String endOfWork, Date originalDeadline) throws ParseException {
     this.id = id;
     this.margin = margin;
     this.penalty = penalty;
-    this.startOfWork = startOfWork;
-    this.endOfWork = endOfWork;
+    this.startOfWork = new SimpleDateFormat("hh:mm").parse(startOfWork);
+    this.endOfWork = new SimpleDateFormat("hh:mm").parse(endOfWork);
     this.originalDeadline = originalDeadline;
   }
 
@@ -46,27 +50,27 @@ public class OrderOutput {
     this.penalty = penalty;
   }
 
-  public String getStartOfWork() {
+  public Date getStartOfWork() {
     return startOfWork;
   }
 
-  public void setStartOfWork(String startOfWork) {
+  public void setStartOfWork(Date startOfWork) {
     this.startOfWork = startOfWork;
   }
 
-  public String getEndOfWork() {
+  public Date getEndOfWork() {
     return endOfWork;
   }
 
-  public void setEndOfWork(String endOfWork) {
+  public void setEndOfWork(Date endOfWork) {
     this.endOfWork = endOfWork;
   }
 
-  public String getOriginalDeadline() {
+  public Date getOriginalDeadline() {
     return originalDeadline;
   }
 
-  public void setOriginalDeadline(String originalDeadline) {
+  public void setOriginalDeadline(Date originalDeadline) {
     this.originalDeadline = originalDeadline;
   }
 }

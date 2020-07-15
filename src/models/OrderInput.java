@@ -1,21 +1,25 @@
 package models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class OrderInput {
 
   private String id;
   private String product;
   private Integer quantity;
-  private String deadline;
+  private Date deadline;
   private Integer margin;
   private Integer penalty;
   private final Integer profit;
 
   public OrderInput(String id, String product, Integer quantity, String deadline, Integer margin,
-      Integer penalty) {
+      Integer penalty) throws ParseException {
     this.id = id;
     this.product = product;
     this.quantity = quantity;
-    this.deadline = deadline;
+    this.deadline = new SimpleDateFormat("yyyy.MM.dd hh:mm").parse(deadline);
     this.margin = margin;
     this.penalty = penalty;
     this.profit = this.margin * this.quantity;
@@ -45,11 +49,11 @@ public class OrderInput {
     this.quantity = quantity;
   }
 
-  public String getDeadline() {
+  public Date getDeadline() {
     return deadline;
   }
 
-  public void setDeadline(String deadline) {
+  public void setDeadline(Date deadline) {
     this.deadline = deadline;
   }
 

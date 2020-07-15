@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,11 +32,11 @@ public class CsvWriter {
       fileWriter.append(";");
       fileWriter.append(rowData.getPenalty().toString());
       fileWriter.append(";");
-      fileWriter.append(rowData.getStartOfWork());
+      fileWriter.append(rowData.getStartOfWork().toString());
       fileWriter.append(";");
-      fileWriter.append(rowData.getEndOfWork());
+      fileWriter.append(rowData.getEndOfWork().toString());
       fileWriter.append(";");
-      fileWriter.append(rowData.getOriginalDeadline());
+      fileWriter.append(rowData.getOriginalDeadline().toString());
       fileWriter.append("\n");
     }
     closeFileWriter(fileWriter);

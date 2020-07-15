@@ -1,18 +1,24 @@
-package models.Machines;
+package models.machines;
 
+import java.text.ParseException;
 import models.OrderInput;
 
-public class Painting {
+public class Painting extends Machine{
 
-  public Double workTime(OrderInput orderInput) {
-    double numberOfMachines = 4d;
+  public Painting(String name) throws ParseException {
+    super(name);
+  }
+
+  @Override
+  public Integer workTimeInMillisecond(OrderInput orderInput) {
+    int numberOfMachines = 4;
     switch (orderInput.getProduct()) {
       case "GYB":
-        return 12 / numberOfMachines;
+        return 12 / numberOfMachines * 60000 * orderInput.getQuantity();
       case "FB":
-        return 20 / numberOfMachines;
+        return 20 / numberOfMachines * 60000 * orderInput.getQuantity();
       case "SB":
-        return 15 / numberOfMachines;
+        return 15 / numberOfMachines * 60000 * orderInput.getQuantity();
     }
     return null;
   }
