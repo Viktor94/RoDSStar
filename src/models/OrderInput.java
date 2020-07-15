@@ -72,4 +72,17 @@ public class OrderInput {
   public Integer getProfit() {
     return profit;
   }
+
+  private Double getTotalProductionTime() {
+    /*
+    Integer firstShift = 480; Integer secondShift = 480;
+     */
+    if (this.product.equals("GYB")) {
+      return this.quantity * 19.83;
+    } else if (this.product.equals("FB")) {
+      return this.quantity * 24.58;
+    } else {
+      return this.quantity * 28.33;
+    }
+  }
 }
