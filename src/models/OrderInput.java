@@ -8,6 +8,7 @@ public class OrderInput {
   private String deadline;
   private Integer margin;
   private Integer penalty;
+  private final Integer profit;
 
   public OrderInput(String id, String product, Integer quantity, String deadline, Integer margin,
       Integer penalty) {
@@ -17,6 +18,7 @@ public class OrderInput {
     this.deadline = deadline;
     this.margin = margin;
     this.penalty = penalty;
+    this.profit = this.margin * this.quantity;
   }
 
   public String getId() {
@@ -65,5 +67,9 @@ public class OrderInput {
 
   public void setPenalty(Integer penalty) {
     this.penalty = penalty;
+  }
+
+  public Integer getProfit() {
+    return profit;
   }
 }

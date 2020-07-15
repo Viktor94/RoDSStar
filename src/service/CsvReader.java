@@ -27,7 +27,7 @@ public class CsvReader {
       int counter = 0;
       while ((row = csvReader.readLine()) != null) {
         String[] data = row.split(";");
-        if ( counter != 0) {
+        if (counter != 0) {
           orderInputs.add(orderConverter.convertToOrder(data));
         }
         counter++;

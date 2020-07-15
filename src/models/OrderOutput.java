@@ -1,6 +1,7 @@
 package models;
 
 public class OrderOutput {
+
   private String id;
   private Integer margin;
   private Integer penalty;
